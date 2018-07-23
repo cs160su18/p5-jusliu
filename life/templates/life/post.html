@@ -1,0 +1,162 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title></title>
+
+		<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{% static '/life/vendor/bootstrap/css/bootstrap.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static '/life/css/main.css' %}" />
+
+		<script src="{% static '/life/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+		<script src="{% static '/life/vendor/jquery-ui/jquery-ui.min.js' %}"></script>
+	</head>
+	<body>
+		<!-- Your layout here -->
+    <nav>
+      <a href="/life">Home</a>
+      <a href="/life/post">Post Outfit</a>
+      <a href="/life/filter">Size Filter</a>
+    </nav>
+    <div class="container">
+      <form action="/life/post/" method="POST">
+        <div class="clothing-block">
+          <h4>Top</h4>
+          <div class="form-group">
+            <input type="text" name="top_brand_name" placeholder=" Brand Name" required />  
+          </div>
+          <div class="form-group">
+            <input type="text" name="top_product_name" placeholder=" Product Name" required />
+          </div>
+          <div class="form-group">
+            <label>Size:</label>
+            <select name="top_size">
+              <option>2XS</option>
+              <option>XS</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+              <option>2XL</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" name="top_color" placeholder=" Color" required />  
+          </div>
+        </div>
+        <div class="clothing-block">
+          <h4>Bottom</h4>
+          <div class="form-group">
+            <input type="text" name="bottom_brand_name" placeholder=" Brand Name" required />  
+          </div>
+          <div class="form-group">
+            <input type="text" name="bottom_product_name" placeholder=" Product Name" required />  
+          </div>
+          <div class="form-group">
+            <label>Size:</label>
+            <select name="bottom_size">
+              <option>2XS</option>
+              <option>XS</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+              <option>2XL</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" name="bottom_color" placeholder=" Color" required />  
+          </div>
+        </div>
+        <div class="clothing-block">
+          <h4>Shoes</h4>
+          <div class="form-group">
+            <input type="text" name="shoes_brand_name" placeholder=" Brand Name" required />  
+          </div>
+          <div class="form-group">
+            <input type="text" name="shoes_product_name" placeholder=" Product Name" required />  
+          </div>
+          <div class="form-group">
+            <label>Size:</label>
+            <select name="shoes_size">
+              <option>2XS</option>
+              <option>XS</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+              <option>2XL</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" name="shoes_color" placeholder=" Color" required />  
+          </div>
+        </div>
+        <div class="clothing-block">
+          <h4>Hat</h4>
+          <div class="form-group">
+            <input type="text" name="hat_brand_name" placeholder=" Brand Name" required />  
+          </div>
+          <div class="form-group">
+            <input type="text" name="hat_product_name" placeholder=" Product Name" required />  
+          </div>
+          <div class="form-group">
+            <label>Size:</label>
+            <select name="hat_size" required >
+              <option>2XS</option>
+              <option>XS</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+              <option>2XL</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" name="hat_color" placeholder=" Color" required />  
+          </div>
+        </div>
+        <div class="clothing-block">
+          <h4>Jacket</h4>
+          <div class="form-group">
+            <input type="text" name="jacket_brand_name" placeholder=" Brand Name" required />  
+          </div>
+          <div class="form-group">
+            <input type="text" name="jacket_product_name" placeholder=" Product Name" required />  
+          </div>
+          <div class="form-group">
+            <label>Size:</label>
+            <select name="jacket_size" required >
+              <option>2XS</option>
+              <option>XS</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+              <option>2XL</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" name="jacket_color" placeholder=" Color" required />  
+          </div>
+        </div>
+        <br />
+        <div class="clothing-block">
+          <h4>Outfit Posting Details</h4>
+          <div class="form-group">
+            <input type="text" name="title" placeholder=" Outfit Title" required />  
+          </div>
+          <div class="form-group">
+            <input type="text" name="author_name" placeholder=" Author Name" required />  
+          </div>
+          <div class="form-group">
+            <input type="text" name="author_email" placeholder=" Author Email" required />  
+          </div>
+        </div>
+        <input type="submit" value="Post My Outfit">
+      </form>
+    </div>
+	</body>
+</html>

@@ -7,14 +7,76 @@
 		<title></title>
 
 		<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="{% static '/life/vendors/bootstrap/css/bootstrap.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static '/life/vendor/bootstrap/css/bootstrap.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static '/life/css/main.css' %}" />
 
-		<script src="{% static '/life/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
-		<script src="{% static '/life/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+		<script src="{% static '/life/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+		<script src="{% static '/life/vendor/jquery-ui/jquery-ui.min.js' %}"></script>
 	</head>
 	<body>
 		<!-- Your layout here -->
-
+    <nav>
+      <a href="/life">Home</a>
+      <a href="/life/post">Post Outfit</a>
+      <a href="/life/filter">Size Filter</a>
+    </nav>
+    <div class="container">
+      <h1>Outfit Postings</h1>
+      {% if not posts %}
+      <p>
+        There are no outfit postings to be displayed!
+      </p>
+      {% else %}
+      {% for post in posts %}
+      <div class="post">
+        <h3>
+          {{ post.title }} – By {{ post.author_name }}
+        </h3>
+        <div class="clothing-block">
+          <h4>Top</h4>
+          <div><b>Brand Name:</b> {{ post.outfit.top.brand_name }}</div>
+          <div><b>Product Name:</b> {{ post.outfit.top.product_name }}</div>
+          <div><b>Size:</b> {{ post.outfit.top.size }}</div>
+          <div><b>Color:</b> {{ post.outfit.top.color }}</div>
+        </div>
+        <div class="clothing-block">
+          <h4>Bottom</h4>
+          <div><b>Brand Name:</b> {{ post.outfit.bottom.brand_name }}</div>
+          <div><b>Product Name:</b> {{ post.outfit.bottom.product_name }}</div>
+          <div><b>Size:</b> {{ post.outfit.bottom.size }}</div>
+          <div><b>Color:</b> {{ post.outfit.bottom.color }}</div>
+        </div>
+        <div class="clothing-block">
+          <h4>Shoes</h4>
+          <div><b>Brand Name:</b> {{ post.outfit.shoes.brand_name }}</div>
+          <div><b>Product Name:</b> {{ post.outfit.shoes.product_name }}</div>
+          <div><b>Size:</b> {{ post.outfit.shoes.size }}</div>
+          <div><b>Color:</b> {{ post.outfit.shoes.color }}</div>
+        </div>
+        {% if post.outfit.hat %}
+        <div class="clothing-block">
+          <h4>Hat</h4>
+          <div><b>Brand Name:</b> {{ post.outfit.hat.brand_name }}</div>
+          <div><b>Product Name:</b> {{ post.outfit.hat.product_name }}</div>
+          <div><b>Size:</b> {{ post.outfit.hat.size }}</div>
+          <div><b>Color:</b> {{ post.outfit.hat.color }}</div>
+        </div>
+        {% endif %}
+        {% if post.outfit.jacket %}
+        <div class="clothing-block">
+          <h4>Jacket</h4>
+          <div><b>Brand Name:</b> {{ post.outfit.jacket.brand_name }}</div>
+          <div><b>Product Name:</b> {{ post.outfit.jacket.product_name }}</div>
+          <div><b>Size:</b> {{ post.outfit.jacket.size }}</div>
+          <div><b>Color:</b> {{ post.outfit.jacket.color }}</div>
+        </div>
+        {% endif %}
+        <div class="timestamp">
+          This outfit posting was created by {{ post.author_name }} ({{ post.author_email }}) on {{ post.created }}
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
 	</body>
 </html>
